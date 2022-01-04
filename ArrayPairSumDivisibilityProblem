@@ -1,0 +1,17 @@
+class Solution:
+	def canPair(self, nuns, k):
+		# Code here
+		if(len(nuns)%2!=0):
+		    return False
+		l=[]
+		for i in range(len(nuns)):
+		    l.append(nuns[i]%k)
+		zero=[j for j in l if j==0]
+		nonzero=[k for k in l if k!=0]
+		if(len(zero)%2!=0):
+		    return False
+		nonzero.sort()
+		for i in range(len(nonzero)):
+		    if(nonzero[i]+nonzero[len(nonzero)-1-i]!=k):
+		        return False
+		return True
